@@ -4,38 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.lista_professores.ListarProfessoresActivity">
+    tools:context=".ListarCursosActivity">
+
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lista_professor"
+        android:id="@+id/lista_de_cusos"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/botao_adicionar_professor"
+        app:layout_constraintBottom_toTopOf="@+id/button_adicionar_curso"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/item_lista_professor" />
+        tools:listitem="@layout/item_lista_curso"/>
 
     <Button
-        android:id="@+id/butao_atualizar_professor"
+        android:id="@+id/button_adicionar_curso"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Atualizar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="adicionar"
+        app:layout_constraintBottom_toTopOf="@+id/button_atualizar_curso"
+        app:layout_constraintEnd_toEndOf="@+id/button_atualizar_curso"
+        app:layout_constraintStart_toStartOf="@+id/button_atualizar_curso" />
 
     <Button
-        android:id="@+id/botao_adicionar_professor"
+        android:id="@+id/button_atualizar_curso"
         android:layout_width="0dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="5dp"
-        android:text="Adicionar"
-        app:layout_constraintBottom_toTopOf="@+id/butao_atualizar_professor"
+        android:layout_height="wrap_content"
+        android:text="atualizar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

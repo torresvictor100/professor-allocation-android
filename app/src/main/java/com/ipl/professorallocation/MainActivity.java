@@ -10,6 +10,7 @@ import com.ipl.professorallocation.data.ProfessorRepositorio;
 import com.ipl.professorallocation.data.RespositorioCallBack;
 import com.ipl.professorallocation.databinding.ActivityMainBinding;
 import com.ipl.professorallocation.model.Professor;
+import com.ipl.professorallocation.view.lista_departamento.ListarDepartamentoActivity;
 import com.ipl.professorallocation.view.lista_professores.ListarProfessoresActivity;
 
 import java.util.List;
@@ -33,10 +34,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
         binding.cardViewCursos.setOnClickListener(view -> {
-            Log.d("IPL1", "cardViewCursos: ");
+            Intent intent = new Intent(this, ListarCursosActivity.class);
+            startActivity(intent);
         });
         binding.cardViewDepartamento.setOnClickListener(view -> {
-            Log.d("IPL1", "cardViewDepartamento: ");
+            Intent intent = new Intent(this, ListarDepartamentoActivity.class);
+            startActivity(intent);
         });
         binding.cardViewAlocacao.setOnClickListener(view -> {
             Log.d("IPL1", "cardViewAlocacao: ");

@@ -26,6 +26,13 @@ public class RetrofitClient {
        return retrofit.create(ProfessorService.class);
     }
 
+    public static DepartamentoService getDepartamentoService(){
+        if(retrofit == null){
+            getInstance();
+        }
+        return retrofit.create(DepartamentoService.class);
+    }
+
     public static CursoService getCursoService() {
         if (retrofit == null) {
             getInstance();

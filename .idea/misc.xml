@@ -10,8 +10,15 @@
         <entry key="..\:/Users/ivonaldo/Desktop/aulas/repositorio/DeepCode1/ProfessorAllocation/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1655" />
         <entry key="..\:/Users/ivonaldo/Desktop/aulas/repositorio/DeepCode1/ProfessorAllocation/app/src/main/res/drawable/ic_learning.xml" value="0.1655" />
         <entry key="..\:/Users/ivonaldo/Desktop/aulas/repositorio/DeepCode1/ProfessorAllocation/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/drawable/ic_education.xml" value="0.2775" />
         <entry key="app/src/main/res/layout/activity_criar_professor.xml" value="0.32083333333333336" />
-        <entry key="app/src/main/res/layout/activity_listar_professores.xml" value="0.34148550724637683" />
+        <entry key="app/src/main/res/layout/activity_listar_cursos.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_listar_departamento.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_listar_professores.xml" value="0.31470588235294117" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
+        <entry key="app/src/main/res/layout/activity_main2.xml" value="0.27291666666666664" />
+        <entry key="app/src/main/res/layout/item_lista_curso.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_lista_departamento.xml" value="0.27291666666666664" />
         <entry key="app/src/main/res/layout/item_lista_professor.xml" value="0.34148550724637683" />
       </map>
     </option>
@@ -21,5 +28,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.34148550724637683" />
+      </ProjectState>
+    </option>
   </component>
 </project>

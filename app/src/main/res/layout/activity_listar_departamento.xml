@@ -4,38 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.lista_professores.ListarProfessoresActivity">
+    tools:context=".view.lista_departamento.ListarDepartamentoActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lista_professor"
-        android:layout_width="0dp"
+        android:id="@+id/lista_departamentos"
+        android:layout_width="409dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/botao_adicionar_professor"
+        app:layout_constraintBottom_toTopOf="@+id/button_adicionar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/item_lista_professor" />
+        app:layout_constraintVertical_bias="0.963"
+        tools:listitem="@layout/item_lista_departamento"/>
 
     <Button
-        android:id="@+id/butao_atualizar_professor"
+        android:id="@+id/button_atualizar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Atualizar"
+        android:text="atualizar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/botao_adicionar_professor"
+        android:id="@+id/button_adicionar"
         android:layout_width="0dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content"
         android:text="Adicionar"
-        app:layout_constraintBottom_toTopOf="@+id/butao_atualizar_professor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/button_atualizar"
+        app:layout_constraintEnd_toEndOf="@+id/button_atualizar"
+        app:layout_constraintStart_toStartOf="@+id/button_atualizar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

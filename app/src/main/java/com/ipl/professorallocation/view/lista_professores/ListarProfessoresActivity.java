@@ -31,7 +31,7 @@ public class ListarProfessoresActivity extends AppCompatActivity {
         configuracaoListaProfessor();
         professorRepositorio = new ProfessorRepositorio();
         listarProfessor();
-        binding.botaoAdicionar.setOnClickListener(view -> {
+        binding.botaoAdicionarProfessor.setOnClickListener(view -> {
             Intent intent = new Intent(this, CriarProfessorActivity.class);
             startActivity(intent);
         });

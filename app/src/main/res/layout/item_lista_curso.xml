@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/nome_curso"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        tools:text="nome"
+        app:layout_constraintEnd_toStartOf="@+id/button_edit_curso"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/image_curso"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image_curso"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_person_outline_24" />
+
+    <Button
+        android:id="@+id/button_edit_curso"
+        android:layout_width="41dp"
+        android:layout_height="53dp"
+        android:text="Button"
+        app:layout_constraintEnd_toStartOf="@+id/button_delete_curso"
+        app:layout_constraintTop_toTopOf="parent"
+        app:icon="@drawable/ic_baseline_edit_24"
+        style="@style/Widget.MaterialComponents.Button.TextButton"/>
+
+    <Button
+        android:id="@+id/button_delete_curso"
+        android:layout_width="41dp"
+        android:layout_height="53dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:icon="@drawable/ic_baseline_delete_forever_24"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/Widget.MaterialComponents.Button.TextButton"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
