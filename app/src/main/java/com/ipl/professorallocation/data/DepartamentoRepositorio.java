@@ -9,8 +9,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import java.util.List;
-import com.ipl.professorallocation.data.DepartamentoService;
-import com.ipl.professorallocation.model.Professor;
 
 public class DepartamentoRepositorio {
 

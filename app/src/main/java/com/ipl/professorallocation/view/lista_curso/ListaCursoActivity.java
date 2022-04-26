@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.ipl.professorallocation.data.CursoRepositorio;
 import com.ipl.professorallocation.data.RespositorioCallBack;
@@ -54,6 +56,8 @@ public class ListaCursoActivity  extends AppCompatActivity {
 
             }
         });
+        binding.listaDeCusos.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        binding.listaDeCusos.setAdapter(adapter);
     }
 
     public void listarCurso(){

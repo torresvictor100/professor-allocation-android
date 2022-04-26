@@ -1,6 +1,8 @@
 package com.ipl.professorallocation.view.lista_departamento;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -38,12 +40,12 @@ public class ListarDepartamentoActivity extends AppCompatActivity {
                 departmentRepositorio.deletarDepartamento(department.getId(), new RespositorioCallBack<Void>() {
                     @Override
                     public void onResponse(Void response) {
-
+                        adapter.removerDepartament(department);
                     }
 
                     @Override
                     public void onFailure(Throwable t) {
-
+                        Log.d("departamentdelete", "onFailure: o delete" + t);
                     }
                 });
             }
@@ -52,14 +54,15 @@ public class ListarDepartamentoActivity extends AppCompatActivity {
             public void onEditeClick(Department department) {
                 Log.d("joao", "onEditeClick: "+department);
             }
-        });{
+        });
+        binding.listaDepartamentos.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        binding.listaDepartamentos.setAdapter(adapter);
 
-        }
     }
 
     public void listarDepartamento(){
 
-        departmentRepositorio.listarDepartamento((new RespositorioCallBack<List<Department>>() {
+        departmentRepositorio.listarDepartamento(new RespositorioCallBack<List<Department>>() {
             @Override
             public void onResponse(List<Department> response) {
                 Log.d("IPL1", "onResponse sucesso c: " + response);
@@ -70,6 +73,6 @@ public class ListarDepartamentoActivity extends AppCompatActivity {
             public void onFailure(Throwable t) {
                 Log.d("IPL1", "onResponse erro c: " + t);
             }
-        }));
+        });
     }
 }

@@ -7,9 +7,7 @@ public class DepartamentRequest {
     @SerializedName("nome")
     private String nome;
 
-
-
-    public DepartamentRequest(String nome){
+    public DepartamentRequest(String nome) {
         this.nome = nome;
     }
 

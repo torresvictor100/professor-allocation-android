@@ -50,8 +50,8 @@ public class ListaDepartamentoAdapter extends RecyclerView.Adapter<ListaDepartam
         notifyDataSetChanged();
     }
 
-    public void removerProfessor(Professor professor){
-        listDepartamento.remove(professor);
+    public void removerDepartament(Department departament){
+        listDepartamento.remove(departament);
         notifyDataSetChanged();
     }
 
