@@ -1,7 +1,6 @@
 package com.ipl.professorallocation.data;
 
-import com.ipl.professorallocation.model.Professor;
-import com.ipl.professorallocation.model.ProfessorRequest;
+import com.ipl.professorallocation.model.Course;
 import com.ipl.professorallocation.model.curso.Curso;
 import com.ipl.professorallocation.model.curso.CursosRequest;
 
@@ -17,7 +16,7 @@ import retrofit2.http.Path;
 public interface CursoService {
 
     @GET("/courses")
-    Call<List<Curso>> listarCursos();
+    Call<List<Curso>> listarTodosOsCursos();
 
     @DELETE("/courses/{id}")
     Call<Void> deletarCourses(@Path("id") int coursesId);

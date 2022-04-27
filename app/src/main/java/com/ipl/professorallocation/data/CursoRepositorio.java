@@ -2,6 +2,7 @@ package com.ipl.professorallocation.data;
 
 import android.util.Log;
 
+import com.ipl.professorallocation.model.Course;
 import com.ipl.professorallocation.model.Professor;
 import com.ipl.professorallocation.model.curso.Curso;
 import com.ipl.professorallocation.model.curso.CursosRequest;
@@ -21,7 +22,7 @@ public class CursoRepositorio {
     }
 
     public void listarCursos(RespositorioCallBack<List<Curso>> respositorioCallBack) {
-        Call<List<Curso>> call = service.listarCursos();
+        Call<List<Curso>> call = service.listarTodosOsCursos();
         call.enqueue(new Callback<List<Curso>>() {
             @Override
             public void onResponse(Call<List<Curso>> call, Response<List<Curso>> response) {

@@ -3,12 +3,12 @@ package com.ipl.professorallocation.view.lista_departamento;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ipl.professorallocation.databinding.ItemListaDepartamentoBinding;
 import com.ipl.professorallocation.model.Department;
-import com.ipl.professorallocation.model.Professor;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +39,8 @@ public class ListaDepartamentoAdapter extends RecyclerView.Adapter<ListaDepartam
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
 
             Department department = listDepartamento.get(position);
-            viewHolder.binding.buttonDeleteDepartamento.setOnClickListener(view -> {});
-            viewHolder.binding.buttonEditDepartamento.setOnClickListener(view -> {});
+            viewHolder.binding.buttonDeleteDepartamento.setOnClickListener(view -> {callBack.onDeleteClick(department);});
+            viewHolder.binding.buttonEditDepartamento.setOnClickListener(view -> {callBack.onEditeClick(department);});
             viewHolder.binding.textNomeDepartamento.setText(department.getName());
 
     }

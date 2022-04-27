@@ -27,7 +27,7 @@ public class CriarProfessorActivity extends AppCompatActivity {
         String cpfProfessor= binding.cpfTextSalva.getText().toString();
         String departamentpProfessor = binding.departamentoTextSalva.getText().toString();
 
-        binding.departamentoTextSalva.setOnClickListener(view ->
+        binding.buttonSalvar.setOnClickListener(view ->
         {professorRepositorio.criarProfessor(new ProfessorRequest(cpfProfessor,Integer.valueOf(departamentpProfessor),nomeprofessor));
         });
     }

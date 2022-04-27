@@ -4,33 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListarCursosActivity">
-
+    tools:context=".view.lista_curso.ListaCursoActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lista_de_cusos"
-        android:layout_width="0dp"
+        android:id="@+id/lista_curso"
+        android:layout_width="409dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_adicionar_curso"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_curso_adicionar"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/item_lista_curso"/>
+        tools:layout_editor_absoluteX="1dp"
+        tools:listitem="@layout/item_lista_curso" />
 
     <Button
-        android:id="@+id/button_adicionar_curso"
+        android:id="@+id/button_curso_adicionar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="adicionar"
-        app:layout_constraintBottom_toTopOf="@+id/button_atualizar_curso"
-        app:layout_constraintEnd_toEndOf="@+id/button_atualizar_curso"
-        app:layout_constraintStart_toStartOf="@+id/button_atualizar_curso" />
+        android:text="Adicionar"
+        app:layout_constraintBottom_toTopOf="@+id/button_atualiza_curso"
+        app:layout_constraintEnd_toEndOf="@+id/button_atualiza_curso"
+        app:layout_constraintStart_toStartOf="@+id/button_atualiza_curso" />
 
     <Button
-        android:id="@+id/button_atualizar_curso"
+        android:id="@+id/button_atualiza_curso"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="atualizar"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="5dp"
+        android:text="Atualizar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

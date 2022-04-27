@@ -1,37 +1,40 @@
 package com.ipl.professorallocation.view.lista_curso;
 
-import android.os.Bundle;
-import android.util.Log;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+
 import com.ipl.professorallocation.data.CursoRepositorio;
 import com.ipl.professorallocation.data.RespositorioCallBack;
-import com.ipl.professorallocation.databinding.ActivityListarCursosBinding;
+import com.ipl.professorallocation.databinding.ActivityListaCursoBinding;
 import com.ipl.professorallocation.model.curso.Curso;
-import com.ipl.professorallocation.view.criar_professor.CriarProfessorActivity;
+import com.ipl.professorallocation.view.criar_curso.CriarCursoActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ListaCursoActivity  extends AppCompatActivity {
+public class ListaCursoActivity extends AppCompatActivity {
 
-    private ActivityListarCursosBinding binding;
+    private ActivityListaCursoBinding binding;
     private ListaCursoAdapter adapter;
     private CursoRepositorio cursoRepositorio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityListaCursoBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         configuracaoListaCurso();
         cursoRepositorio = new CursoRepositorio();
-        listarCurso();
-        binding.buttonAdicionarCurso.setOnClickListener(view -> {
-
+        ListaCurso();
+        binding.buttonCursoAdicionar.setOnClickListener(view -> {
+            Intent intent = new Intent(this, CriarCursoActivity.class);
+            startActivity(intent);
         });
-
 
     }
     public void configuracaoListaCurso(){
@@ -41,26 +44,27 @@ public class ListaCursoActivity  extends AppCompatActivity {
                 cursoRepositorio.deletarCursos(curso.getId(), new RespositorioCallBack<Void>() {
                     @Override
                     public void onResponse(Void response) {
-                        adapter.removerCurso(curso);
+                        adapter.removeCurso(curso);
                     }
 
                     @Override
                     public void onFailure(Throwable t) {
-                        Log.d("professordelete", "Falho o delete "+ t);
+                        Log.d("cursodelete", "onFailure: o delete" + t);
                     }
                 });
             }
 
             @Override
             public void onEditeClick(Curso curso) {
-
+                Log.d("joao", "onEditeClick: "+curso);
             }
         });
-        binding.listaDeCusos.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-        binding.listaDeCusos.setAdapter(adapter);
+
+        binding.listaCurso.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        binding.listaCurso.setAdapter(adapter);
     }
 
-    public void listarCurso(){
+    public void ListaCurso() {
         cursoRepositorio.listarCursos(new RespositorioCallBack<List<Curso>>() {
             @Override
             public void onResponse(List<Curso> response) {

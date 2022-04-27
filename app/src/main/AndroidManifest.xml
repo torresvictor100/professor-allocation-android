@@ -12,7 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProfessorAllocation">
         <activity
-            android:name=".ListarCursosActivity"
+            android:name=".view.criar_departamento.CriarDepartamentoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.criar_curso.CriarCursoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.lista_curso.ListaCursoActivity"
             android:exported="false" />
         <activity
             android:name=".view.lista_departamento.ListarDepartamentoActivity"

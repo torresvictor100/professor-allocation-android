@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -11,9 +12,8 @@ import com.ipl.professorallocation.data.DepartamentoRepositorio;
 import com.ipl.professorallocation.data.RespositorioCallBack;
 import com.ipl.professorallocation.databinding.ActivityListarDepartamentoBinding;
 import com.ipl.professorallocation.model.Department;
-import com.ipl.professorallocation.view.lista_professores.ListarProfessoresAdapter;
+import com.ipl.professorallocation.view.criar_departamento.CriarDepartamentoActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListarDepartamentoActivity extends AppCompatActivity {
@@ -30,6 +30,10 @@ public class ListarDepartamentoActivity extends AppCompatActivity {
         configuracaoListaDepartamento();
         departmentRepositorio = new DepartamentoRepositorio();
         listarDepartamento();
+        binding.buttonAdicionar.setOnClickListener(view -> {
+            Intent intent = new Intent(this, CriarDepartamentoActivity.class);
+            startActivity(intent);
+        });
 
     }
 

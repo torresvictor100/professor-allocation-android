@@ -14,12 +14,12 @@ import retrofit2.http.Path;
 
 public interface DepartamentoService {
 
-    @GET("/departaments")
+    @GET("/departments")
     Call<List<Department>> listarTodosOsDepartamento();
 
-    @DELETE("/departaments/{id}")
+    @DELETE("/departments/{id}")
     Call<Void> deletarDepartamento(@Path("id") int departamentid);
 
-    @POST("/departaments")
+    @POST("/departments")
     Call<Department> criarDepartamento(@Body DepartamentRequest departamentRequest);
 }
