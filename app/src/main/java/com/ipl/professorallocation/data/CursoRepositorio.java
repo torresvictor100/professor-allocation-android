@@ -37,17 +37,54 @@ public class CursoRepositorio {
         });
     }
 
-    public void criarCurso(CursosRequest cursosRequest){
+    public void criarCurso(CursosRequest cursosRequest, RespositorioCallBack<Curso> respositorioCallBack){
         Call<Curso> call = service.criarCourses(cursosRequest);
         call.enqueue(new Callback<Curso>() {
             @Override
             public void onResponse(Call<Curso> call, Response<Curso> response) {
                 Log.d("IPL1", "onResponse sucesso: " + response.body());
+                respositorioCallBack.onResponse(response.body());
             }
 
             @Override
             public void onFailure(Call<Curso> call, Throwable t) {
                 Log.d("IPL1", "onResponse erro: " + t);
+                respositorioCallBack.onFailure(t);
+            }
+        });
+    }
+
+    public void buscarCurso(int idCurso, RespositorioCallBack respositorioCallBack){
+        Call<Curso> call = service.buscarCursoId(idCurso);
+        call.enqueue(new Callback<Curso>() {
+            @Override
+            public void onResponse(Call<Curso> call, Response<Curso> response) {
+                Log.d("buscarcurso", "onResponse: Sucesso"+ response);
+                respositorioCallBack.onResponse(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<Curso> call, Throwable t) {
+                Log.d("buscacurso", "onFailure: falha ao busca curso");
+                respositorioCallBack.onFailure(t);
+            }
+        });
+    }
+
+    public void editaCurso(int idCurso, CursosRequest cursosRequest, RespositorioCallBack respositorioCallBack){
+        Call<Curso> call = service.editarCurso(idCurso, cursosRequest);
+        call.enqueue(new Callback<Curso>() {
+            @Override
+            public void onResponse(Call<Curso> call, Response<Curso> response) {
+                Log.d("editacurso", "onResponse: edição com sucesso");
+                respositorioCallBack.onResponse(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<Curso> call, Throwable t) {
+                Log.d("editacurso", "onFailure: falhou a edição");
+                respositorioCallBack.onFailure(t);
+
             }
         });
     }

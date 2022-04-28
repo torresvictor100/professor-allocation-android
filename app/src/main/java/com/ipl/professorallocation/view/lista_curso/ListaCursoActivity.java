@@ -37,6 +37,13 @@ public class ListaCursoActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ListaCurso();
+    }
+
     public void configuracaoListaCurso(){
         adapter = new ListaCursoAdapter(new ListaCursoAdapter.CallBack() {
             @Override
@@ -56,7 +63,9 @@ public class ListaCursoActivity extends AppCompatActivity {
 
             @Override
             public void onEditeClick(Curso curso) {
-                Log.d("joao", "onEditeClick: "+curso);
+                Intent intent = new Intent(ListaCursoActivity.this, CriarCursoActivity.class);
+                intent.putExtra("extra_id_curso", curso.getId());
+                startActivity(intent);
             }
         });
 

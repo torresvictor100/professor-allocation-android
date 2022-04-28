@@ -54,7 +54,7 @@ public class ListaCursoAdapter extends RecyclerView.Adapter<ListaCursoAdapter.Vi
     }
 
     public void removeCurso(Curso curso){
-        this.listCurso = listCurso;
+        listCurso.remove(curso);
         notifyDataSetChanged();
     }
 
