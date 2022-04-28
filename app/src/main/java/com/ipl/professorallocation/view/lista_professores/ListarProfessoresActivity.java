@@ -30,12 +30,17 @@ public class ListarProfessoresActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         configuracaoListaProfessor();
         professorRepositorio = new ProfessorRepositorio();
-        listarProfessor();
         binding.botaoAdicionarProfessor.setOnClickListener(view -> {
             Intent intent = new Intent(this, CriarProfessorActivity.class);
             startActivity(intent);
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        listarProfessor();
     }
 
     public void configuracaoListaProfessor(){
@@ -57,7 +62,9 @@ public class ListarProfessoresActivity extends AppCompatActivity {
 
             @Override
             public void onEditeClick(Professor professor) {
-                Log.d("joao", "onEditeClick: "+ professor);
+                Intent intent = new Intent(ListarProfessoresActivity.this, CriarProfessorActivity.class);
+                intent.putExtra( "extra_id_professor", professor.getId());
+                startActivity(intent);
             }
         });
         binding.listaProfessor.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));

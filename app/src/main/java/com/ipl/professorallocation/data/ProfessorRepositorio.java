@@ -35,17 +35,54 @@ public class ProfessorRepositorio {
         });
     }
 
-    public void criarProfessor(ProfessorRequest professorRequest) {
+
+    public void buscarProfessorPorId(int idProfessor, RespositorioCallBack<Professor> respositorioCallBack){
+        Call<Professor> call = service.buscarProfessorId(idProfessor);
+        call.enqueue(new Callback<Professor>() {
+            @Override
+            public void onResponse(Call<Professor> call, Response<Professor> response) {
+                Log.d("buscarprofessor", "onResponse: Sucesso"+response );
+                respositorioCallBack.onResponse(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<Professor> call, Throwable t) {
+                Log.d("buscarprofessor", "onFailure: falha ao buscar");
+                respositorioCallBack.onFailure(t);
+            }
+        });
+    }
+
+    public void editaProfessor( int idProfessor , ProfessorRequest professorRequest, RespositorioCallBack<Professor> respositorioCallBack){
+        Call<Professor> call = service.editaProfessor( idProfessor ,professorRequest);
+        call.enqueue(new Callback<Professor>() {
+            @Override
+            public void onResponse(Call<Professor> call, Response<Professor> response) {
+                Log.d("editarprofessor", "onResponse: editar sucesso");
+                respositorioCallBack.onResponse(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<Professor> call, Throwable t) {
+                Log.d("editarprofessor", "onFailure: falhou edição professor");
+                respositorioCallBack.onFailure(t);
+            }
+        });
+    }
+
+    public void criarProfessor(ProfessorRequest professorRequest, RespositorioCallBack<Professor> respositorioCallBack) {
         Call<Professor> call = service.criarProfessor(professorRequest);
         call.enqueue(new Callback<Professor>() {
             @Override
             public void onResponse(Call<Professor> call, Response<Professor> response) {
                 Log.d("IPL1", "onResponse sucesso: " + response.body());
+                respositorioCallBack.onResponse(response.body());
             }
 
             @Override
             public void onFailure(Call<Professor> call, Throwable t) {
                 Log.d("IPL1", "onResponse erro: " + t);
+                respositorioCallBack.onFailure(t);
             }
         });
     }

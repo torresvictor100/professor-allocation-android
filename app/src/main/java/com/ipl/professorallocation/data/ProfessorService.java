@@ -18,9 +18,15 @@ public interface ProfessorService {
     @GET("/professors")
     Call<List<Professor>> listaTodosOsProfessores();
 
+    @GET("/professors/{id}")
+    Call<Professor> buscarProfessorId(@Path("id") int professorId);
+
     @DELETE("/professors/{id}")
     Call<Void> deletarProfessor(@Path("id") int professorId);
 
     @POST("/professors")
     Call<Professor> criarProfessor(@Body ProfessorRequest professorRequest);
+
+    @PUT("/professors/{id}")
+    Call<Professor> editaProfessor( @Path("id") int professorId ,@Body ProfessorRequest professorRequest);
 }

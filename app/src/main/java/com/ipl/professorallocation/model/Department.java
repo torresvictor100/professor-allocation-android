@@ -2,6 +2,8 @@ package com.ipl.professorallocation.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Objects;
+
 public class Department{
 
 	@SerializedName("name")
@@ -28,10 +30,16 @@ public class Department{
 
 	@Override
  	public String toString(){
-		return 
-			"Department{" + 
-			"name = '" + name + '\'' + 
-			",id = '" + id + '\'' + 
-			"}";
+		return name;
 		}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Department that = (Department) o;
+		return id == that.id ;
+	}
+
 }
+
