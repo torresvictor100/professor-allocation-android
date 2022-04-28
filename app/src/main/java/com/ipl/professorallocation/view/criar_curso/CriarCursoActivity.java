@@ -45,6 +45,7 @@ public class CriarCursoActivity extends AppCompatActivity {
             @Override
             public void onResponse(Curso response) {
                 binding.nomeCriarCurso.setText(response.getName());
+                binding.criarSiglaCurso.setText(response.getSigla());
                 editarCurso = response;
             }
 
@@ -71,7 +72,8 @@ public class CriarCursoActivity extends AppCompatActivity {
 
     private CursosRequest getCurso(){
         String nomeCurso = binding.nomeCriarCurso.getText().toString();
-        return new CursosRequest(nomeCurso);
+        String siglaCurso = binding.criarSiglaCurso.getText().toString();
+        return new CursosRequest(nomeCurso, siglaCurso);
     }
 
 

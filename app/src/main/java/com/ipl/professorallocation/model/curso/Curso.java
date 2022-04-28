@@ -11,6 +11,10 @@ public class Curso{
 	@SerializedName("name")
 	private String name;
 
+	@SerializedName("sigla")
+	private String sigla;
+
+
 	@SerializedName("id")
 	private int id;
 
@@ -38,13 +42,14 @@ public class Curso{
 		return id;
 	}
 
+	public String getSigla(){
+		return sigla;
+	}
+
+	public void setSigla(String sigla){ this.sigla = sigla; }
+
 	@Override
  	public String toString(){
-		return 
-			"Curso{" + 
-			"allocations = '" + allocations + '\'' + 
-			",name = '" + name + '\'' + 
-			",id = '" + id + '\'' + 
-			"}";
-		}
+		return name;
+	}
 }

@@ -7,8 +7,12 @@ public class CursosRequest {
     @SerializedName("name")
     private String name;
 
-    public CursosRequest(String name){
+    @SerializedName("sigla")
+    private String sigla;
+
+    public CursosRequest(String name,String sigla ){
         this.name = name;
+        this.sigla = sigla;
     }
 
     public String getName() {
@@ -19,9 +23,15 @@ public class CursosRequest {
         this.name = name;
     }
 
+    public String getSigla(){
+        return sigla;
+    }
+
+    public void setSigla(String sigla){ this.sigla = sigla; }
+
 
     @Override
     public String toString(){
-        return"CursoRequest{ "+ "name"+ "}";
+        return"CursoRequest{ "+ "name"+ name + "sigla"+ sigla + "}";
     }
 }

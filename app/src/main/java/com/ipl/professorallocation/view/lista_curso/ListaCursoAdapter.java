@@ -46,6 +46,7 @@ public class ListaCursoAdapter extends RecyclerView.Adapter<ListaCursoAdapter.Vi
         viewHolder.binding.buttonDeleteCurso.setOnClickListener(view -> { callBack.onDeleteClick(curso); });
         viewHolder.binding.buttonEditCurso.setOnClickListener(view -> { callBack.onEditeClick(curso); });
         viewHolder.binding.nomeCurso.setText(curso.getName());
+        viewHolder.binding.siglaCurso.setText(curso.getSigla());
     }
 
     public  void addCurso(List<Curso> listCurso){
