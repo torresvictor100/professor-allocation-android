@@ -56,8 +56,6 @@ public class CriarCursoActivity extends AppCompatActivity {
     }
 
     private void salvarCurso(){
-
-
         binding.buttonCriarCurso.setOnClickListener(view -> {
             CursosRequest cursosRequest = getCurso();
             if (idCurso > -1){
@@ -65,8 +63,6 @@ public class CriarCursoActivity extends AppCompatActivity {
             }else{
                 criarCurso(cursosRequest);
             }
-
-
 
         });
 
@@ -89,7 +85,7 @@ public class CriarCursoActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Throwable t) {
-                Log.d("ediçãocurso", "onFailure: falhou a edição");
+                Log.d("edicaocurso", "onFailure: falhou a edição");
             }
         });
     }
@@ -105,7 +101,6 @@ public class CriarCursoActivity extends AppCompatActivity {
             @Override
             public void onFailure(Throwable t) {
                 Log.d("cadastrarprofessor", "onFailure: falha ao salvar");
-
             }
         });
     }

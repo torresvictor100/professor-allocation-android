@@ -13,6 +13,7 @@ import com.ipl.professorallocation.data.RespositorioCallBack;
 import com.ipl.professorallocation.databinding.ActivityListarDepartamentoBinding;
 import com.ipl.professorallocation.model.Department;
 import com.ipl.professorallocation.view.criar_departamento.CriarDepartamentoActivity;
+import com.ipl.professorallocation.view.lista_professores.ListarProfessoresActivity;
 
 import java.util.List;
 
@@ -37,6 +38,12 @@ public class ListarDepartamentoActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        listarDepartamento();
+    }
+
     public void configuracaoListaDepartamento(){
         adapter = new ListaDepartamentoAdapter(new ListaDepartamentoAdapter.CallBack() {
             @Override
@@ -56,7 +63,9 @@ public class ListarDepartamentoActivity extends AppCompatActivity {
 
             @Override
             public void onEditeClick(Department department) {
-                Log.d("joao", "onEditeClick: "+department);
+               Intent intent = new Intent(ListarDepartamentoActivity.this,CriarDepartamentoActivity.class);
+               intent.putExtra("extra_id_departamento", department.getId());
+               startActivity(intent);
             }
         });
         binding.listaDepartamentos.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));

@@ -4,24 +4,24 @@ import com.google.gson.annotations.SerializedName;
 
 public class DepartamentRequest {
 
-    @SerializedName("nome")
-    private String nome;
+    @SerializedName("name")
+    private String name;
 
-    public DepartamentRequest(String nome) {
-        this.nome = nome;
+    public DepartamentRequest(String name) {
+        this.name = name;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
 
     @Override
     public String toString(){
-        return "DepartamentoRequest{" + "nome" + nome +"}";
+        return "DepartamentoRequest{" + "nome" + name +"}";
     }
 }
