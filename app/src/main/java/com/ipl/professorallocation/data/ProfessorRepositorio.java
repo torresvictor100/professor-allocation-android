@@ -42,6 +42,7 @@ public class ProfessorRepositorio {
             @Override
             public void onResponse(Call<Professor> call, Response<Professor> response) {
                 Log.d("buscarprofessor", "onResponse: Sucesso"+response );
+                Professor pp = response.body();
                 respositorioCallBack.onResponse(response.body());
             }
 

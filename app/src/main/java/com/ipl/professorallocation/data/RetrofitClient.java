@@ -40,4 +40,10 @@ public class RetrofitClient {
         return retrofit.create(CursoService.class);
     }
 
+    public static AllocationService getAllocationService(){
+        if(retrofit==null){
+            getInstance();
+        }
+        return retrofit.create(AllocationService.class);
+    }
 }
