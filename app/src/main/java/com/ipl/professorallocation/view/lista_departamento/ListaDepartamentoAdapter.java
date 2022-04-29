@@ -42,6 +42,9 @@ public class ListaDepartamentoAdapter extends RecyclerView.Adapter<ListaDepartam
             viewHolder.binding.buttonDeleteDepartamento.setOnClickListener(view -> {callBack.onDeleteClick(department);});
             viewHolder.binding.buttonEditDepartamento.setOnClickListener(view -> {callBack.onEditeClick(department);});
             viewHolder.binding.textNomeDepartamento.setText(department.getName());
+            viewHolder.binding.departamentoListaArea.setText(department.getArea());
+            viewHolder.binding.siglaListaDepartamento.setText(department.getSigla());
+
 
     }
 

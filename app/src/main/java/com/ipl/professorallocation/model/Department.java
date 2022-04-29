@@ -12,6 +12,13 @@ public class Department{
 	@SerializedName("id")
 	private int id;
 
+	@SerializedName("area")
+	private String area;
+
+	@SerializedName("sigla")
+	private String sigla;
+
+
 	public void setName(String name){
 		this.name = name;
 	}
@@ -27,6 +34,15 @@ public class Department{
 	public int getId(){
 		return id;
 	}
+
+	public String getArea(){ return area;}
+
+	public void setArea(String area){ this.area = area; }
+
+	public String getSigla(){return  sigla;}
+
+	public void setSigla(){ this.sigla = sigla; }
+
 
 	@Override
  	public String toString(){

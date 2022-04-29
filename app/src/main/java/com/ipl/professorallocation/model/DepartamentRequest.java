@@ -7,8 +7,16 @@ public class DepartamentRequest {
     @SerializedName("name")
     private String name;
 
-    public DepartamentRequest(String name) {
+    @SerializedName("area")
+    private String area;
+
+    @SerializedName("sigla")
+    private String sigla;
+
+    public DepartamentRequest(String area, String name,  String sigla) {
+        this.area = area;
         this.name = name;
+        this.sigla = sigla;
     }
 
     public String getName() {
@@ -19,9 +27,17 @@ public class DepartamentRequest {
         this.name = name;
     }
 
+    public String getArea(){ return  area;}
+
+    public void setArea(){ this.area = area;}
+
+    public String getSigla(){return sigla;}
+
+    public void setSigla(){this.sigla = sigla;}
+
 
     @Override
     public String toString(){
-        return "DepartamentoRequest{" + "nome" + name +"}";
+        return "DepartamentoRequest{" + "nome" + name +"area "+ area +"sigla"+sigla+"}";
     }
 }

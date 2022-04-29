@@ -9,17 +9,18 @@
         android:id="@+id/text_nome_departamento"
         android:layout_width="0dp"
         android:layout_height="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toStartOf="@+id/button_edit_departamento"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/image_departamento"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Nome" />
 
     <ImageView
         android:id="@+id/image_departamento"
-        android:layout_marginTop="8dp"
         android:layout_width="54dp"
         android:layout_height="54dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_person_outline_24" />
@@ -29,8 +30,8 @@
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="43dp"
         android:layout_height="53dp"
-        android:layout_marginTop="8dp"
         app:icon="@drawable/ic_baseline_delete_forever_24"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,8 +40,30 @@
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="41dp"
         android:layout_height="53dp"
-        android:layout_marginTop="8dp"
         app:icon="@drawable/ic_baseline_edit_24"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_delete_departamento"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/departamento_lista_area"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/sigla_lista_departamento"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/sigla_lista_departamento"
+        app:layout_constraintTop_toBottomOf="@+id/sigla_lista_departamento"
+        tools:text="Area" />
+
+    <TextView
+        android:id="@+id/sigla_lista_departamento"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/text_nome_departamento"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="@+id/text_nome_departamento"
+        app:layout_constraintTop_toBottomOf="@+id/text_nome_departamento"
+        tools:text="Sigla" />
 </androidx.constraintlayout.widget.ConstraintLayout>
