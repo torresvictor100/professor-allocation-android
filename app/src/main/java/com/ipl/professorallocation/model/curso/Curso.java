@@ -2,6 +2,7 @@ package com.ipl.professorallocation.model.curso;
 
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
+import com.ipl.professorallocation.model.AllocationsItem;
 
 public class Curso{
 

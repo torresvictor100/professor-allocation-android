@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.criar_allocation.criar_alocacao.CriarAlocacaoActivity">
+
+    <Spinner
+        android:id="@+id/spinner_dia_da_semana"
+        android:layout_width="409dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/horario_de_inicio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Hora inicio"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_dia_da_semana"
+        app:layout_constraintStart_toStartOf="@+id/spinner_dia_da_semana"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_dia_da_semana" />
+
+    <EditText
+        android:id="@+id/horario_de_final"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="hora final"
+        app:layout_constraintEnd_toEndOf="@+id/horario_de_inicio"
+        app:layout_constraintStart_toStartOf="@+id/horario_de_inicio"
+        app:layout_constraintTop_toBottomOf="@+id/horario_de_inicio" />
+
+    <Spinner
+        android:id="@+id/spinner_professor"
+        android:layout_width="409dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/horario_de_final"
+        app:layout_constraintStart_toStartOf="@+id/horario_de_final"
+        app:layout_constraintTop_toBottomOf="@+id/horario_de_final" />
+
+    <Spinner
+        android:id="@+id/spinner_de_curso"
+        android:layout_width="409dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_professor"
+        app:layout_constraintStart_toStartOf="@+id/spinner_professor"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_professor" />
+
+    <Button
+        android:id="@+id/button_salvar_alocacao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Salvar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

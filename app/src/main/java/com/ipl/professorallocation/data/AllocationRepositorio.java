@@ -3,7 +3,8 @@ package com.ipl.professorallocation.data;
 import android.renderscript.Allocation;
 import android.util.Log;
 
-import com.ipl.professorallocation.model.curso.AllocationsItem;
+import com.ipl.professorallocation.model.AllocationRequest;
+import com.ipl.professorallocation.model.AllocationsItem;
 
 import java.util.List;
 
@@ -17,24 +18,26 @@ public class AllocationRepositorio {
 
     public AllocationRepositorio(){ service = RetrofitClient.getAllocationService();}
 
-    public void listaAllocation(RespositorioCallBack<List<Allocation>> respositorioCallBack ) {
-        Call<List<Allocation>> call = service.listarCursosAllocation();
-        call.enqueue(new Callback<List<Allocation>>() {
+    public void listaAllocation(RespositorioCallBack<List<AllocationsItem>> respositorioCallBack ) {
+        Call<List<AllocationsItem>> call = service.listarCursosAllocation();
+        call.enqueue(new Callback<List<AllocationsItem>>() {
+
             @Override
-            public void onResponse(Call<List<Allocation>> call, Response<List<Allocation>> response) {
-                List<Allocation> list = response.body();
+            public void onResponse(Call<List<AllocationsItem>> call, Response<List<AllocationsItem>> response) {
+                List<AllocationsItem> list = response.body();
+
                 respositorioCallBack.onResponse(list);
             }
 
             @Override
-            public void onFailure(Call<List<Allocation>> call, Throwable t) {
+            public void onFailure(Call<List<AllocationsItem>> call, Throwable t) {
                 respositorioCallBack.onFailure(t);
             }
         });
     }
 
-    public void criarAllocation(AllocationsItem allocationsItem, RespositorioCallBack<Allocation> respositorioCallBack){
-        Call<Allocation> call = service.criarAllocacao(allocationsItem);
+    public void criarAllocation(AllocationRequest allocationRequest, RespositorioCallBack<Allocation> respositorioCallBack){
+        Call<Allocation> call = service.criarAllocacao(allocationRequest);
         call.enqueue(new Callback<Allocation>() {
             @Override
             public void onResponse(Call<Allocation> call, Response<Allocation> response) {
@@ -67,8 +70,8 @@ public class AllocationRepositorio {
         });
     }
 
-    public void editarAllocation(int idAllocation, AllocationsItem allocationsItem,RespositorioCallBack respositorioCallBack ){
-        Call<Allocation> call = service.editarAllocacao(idAllocation, allocationsItem);
+    public void editarAllocation(int idAllocation, AllocationRequest allocationRequest, RespositorioCallBack respositorioCallBack ){
+        Call<Allocation> call = service.editarAllocacao(idAllocation, allocationRequest);
         call.enqueue(new Callback<Allocation>() {
             @Override
             public void onResponse(Call<Allocation> call, Response<Allocation> response) {

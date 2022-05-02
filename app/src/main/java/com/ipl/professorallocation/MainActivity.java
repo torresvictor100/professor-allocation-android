@@ -8,6 +8,7 @@ import android.util.Log;
 
 
 import com.ipl.professorallocation.databinding.ActivityMainBinding;
+import com.ipl.professorallocation.view.lista_alocacao.ListaAlocacaoActivity;
 import com.ipl.professorallocation.view.lista_curso.ListaCursoActivity;
 import com.ipl.professorallocation.view.lista_departamento.ListarDepartamentoActivity;
 import com.ipl.professorallocation.view.lista_professores.ListarProfessoresActivity;
@@ -40,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
         binding.cardViewAlocacao.setOnClickListener(view -> {
-            Log.d("IPL1", "cardViewAlocacao: ");
+            Intent intent = new Intent(this, ListaAlocacaoActivity.class);
+            startActivity(intent);
         });
 
     }

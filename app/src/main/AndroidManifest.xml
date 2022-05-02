@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProfessorAllocation">
         <activity
+            android:name=".view.criar_allocation.criar_alocacao.CriarAlocacaoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.criar_allocation.Criar"
+            android:exported="false" />
+        <activity
+            android:name=".view.lista_alocacao.ListaAlocacaoActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.criar_departamento.CriarDepartamentoActivity"
             android:exported="false" />
         <activity

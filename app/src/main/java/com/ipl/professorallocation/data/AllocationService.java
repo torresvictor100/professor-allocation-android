@@ -2,7 +2,8 @@ package com.ipl.professorallocation.data;
 
 import android.renderscript.Allocation;
 
-import com.ipl.professorallocation.model.curso.AllocationsItem;
+import com.ipl.professorallocation.model.AllocationRequest;
+import com.ipl.professorallocation.model.AllocationsItem;
 
 import java.util.List;
 
@@ -16,19 +17,19 @@ import retrofit2.http.Path;
 
 public interface AllocationService {
 
-    @GET("/allocation")
-    Call<List<Allocation>> listarCursosAllocation();
+    @GET("/allocations")
+    Call<List<AllocationsItem>> listarCursosAllocation();
 
-    @GET("/allocation/{id}")
+    @GET("/allocations/{id}")
     Call<Allocation> buscarAllocacaoPorId(@Path("id") int allocacaoId);
 
-    @DELETE("/allocation/{id}")
+    @DELETE("/allocations/{id}")
     Call<Void> deletarAllocacao(@Path("id") int allocacaoId);
 
-    @POST("/allocation")
-    Call<Allocation> criarAllocacao(@Body AllocationsItem allocationsItem);
+    @POST("/allocations")
+    Call<Allocation> criarAllocacao(@Body AllocationRequest allocationRequest);
 
-    @PUT("/allocation/{id}")
-    Call<Allocation> editarAllocacao(@Path("id") int allocationId, @Body AllocationsItem allocationsItem);
+    @PUT("/allocations/{id}")
+    Call<Allocation> editarAllocacao(@Path("id") int allocationId, @Body AllocationRequest allocationRequest);
 
 }
