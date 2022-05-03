@@ -21,15 +21,15 @@ public interface AllocationService {
     Call<List<AllocationsItem>> listarCursosAllocation();
 
     @GET("/allocations/{id}")
-    Call<Allocation> buscarAllocacaoPorId(@Path("id") int allocacaoId);
+    Call<AllocationsItem> buscarAllocacaoPorId(@Path("id") int allocacaoId);
 
     @DELETE("/allocations/{id}")
     Call<Void> deletarAllocacao(@Path("id") int allocacaoId);
 
     @POST("/allocations")
-    Call<Allocation> criarAllocacao(@Body AllocationRequest allocationRequest);
+    Call<AllocationsItem> criarAllocacao(@Body AllocationRequest allocationRequest);
 
     @PUT("/allocations/{id}")
-    Call<Allocation> editarAllocacao(@Path("id") int allocationId, @Body AllocationRequest allocationRequest);
+    Call<AllocationsItem> editarAllocacao(@Path("id") int allocationId, @Body AllocationRequest allocationRequest);
 
 }

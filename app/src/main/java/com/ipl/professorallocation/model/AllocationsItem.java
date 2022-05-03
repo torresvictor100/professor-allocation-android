@@ -3,11 +3,12 @@ package com.ipl.professorallocation.model;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 
 public class AllocationsItem implements Serializable {
 
 	@SerializedName("end")
-	private String endHour;
+	private LocalTime endHour;
 
 	@SerializedName("professor")
 	private Professor professor;
@@ -16,7 +17,7 @@ public class AllocationsItem implements Serializable {
 	private String dayOfWeek;
 
 	@SerializedName("start")
-	private String startHour;
+	private LocalTime startHour;
 
 	@SerializedName("course")
 	private Course course;
@@ -24,11 +25,11 @@ public class AllocationsItem implements Serializable {
 	@SerializedName("id")
 	private int id;
 
-	public void setEndHour(String endHour){
+	public void setEndHour(LocalTime endHour){
 		this.endHour = endHour;
 	}
 
-	public String getEndHour(){
+	public LocalTime getEndHour(){
 		return endHour;
 	}
 
@@ -48,11 +49,11 @@ public class AllocationsItem implements Serializable {
 		return dayOfWeek;
 	}
 
-	public void setStartHour(String startHour){
+	public void setStartHour(LocalTime startHour){
 		this.startHour = startHour;
 	}
 
-	public String getStartHour(){
+	public LocalTime getStartHour(){
 		return startHour;
 	}
 

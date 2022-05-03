@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.Allocation;
 import android.util.Log;
@@ -12,6 +13,7 @@ import com.ipl.professorallocation.data.AllocationRepositorio;
 import com.ipl.professorallocation.data.RespositorioCallBack;
 import com.ipl.professorallocation.databinding.ActivityListaAlocacaoBinding;
 import com.ipl.professorallocation.model.AllocationsItem;
+import com.ipl.professorallocation.view.criar_allocation.criar_alocacao.CriarAlocacaoActivity;
 
 import java.util.List;
 
@@ -30,6 +32,10 @@ public class ListaAlocacaoActivity extends AppCompatActivity {
         listarAlocacoes();
         setupOnCLickListener();
         setupRecyclerView();
+        binding.buttonAdicionarAlocacao.setOnClickListener(view -> {
+            Intent intent = new Intent(this, CriarAlocacaoActivity.class);
+            startActivity(intent);
+        });
 
     }
 

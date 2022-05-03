@@ -62,13 +62,6 @@ public class Professor{
 
 	@Override
  	public String toString(){
-		return 
-			"Professor{" + 
-			"allocations = '" + allocations + '\'' + 
-			",name = '" + name + '\'' + 
-			",cpf = '" + cpf + '\'' + 
-			",id = '" + id + '\'' + 
-			",department = '" + department + '\'' + 
-			"}";
+		return name ;
 		}
 }

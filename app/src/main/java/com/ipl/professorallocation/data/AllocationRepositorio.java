@@ -36,17 +36,17 @@ public class AllocationRepositorio {
         });
     }
 
-    public void criarAllocation(AllocationRequest allocationRequest, RespositorioCallBack<Allocation> respositorioCallBack){
-        Call<Allocation> call = service.criarAllocacao(allocationRequest);
-        call.enqueue(new Callback<Allocation>() {
+    public void criarAllocation(AllocationRequest allocationRequest, RespositorioCallBack<AllocationsItem> respositorioCallBack){
+        Call<AllocationsItem> call = service.criarAllocacao(allocationRequest);
+        call.enqueue(new Callback<AllocationsItem>() {
             @Override
-            public void onResponse(Call<Allocation> call, Response<Allocation> response) {
+            public void onResponse(Call<AllocationsItem> call, Response<AllocationsItem> response) {
                 Log.d("allocationcriar", "onResponse: sucesso "+ response.body());
                 respositorioCallBack.onResponse(response.body());
             }
 
             @Override
-            public void onFailure(Call<Allocation> call, Throwable t) {
+            public void onFailure(Call<AllocationsItem> call, Throwable t) {
                 Log.d("allocationcriar", "onFailure: "+ t);
                 respositorioCallBack.onFailure(t);
             }
@@ -54,16 +54,16 @@ public class AllocationRepositorio {
     }
 
     public void buscarAllocation(int idAllocation, RespositorioCallBack respositorioCallBack){
-        Call<Allocation> call = service.buscarAllocacaoPorId(idAllocation);
-        call.enqueue(new Callback<Allocation>() {
+        Call<AllocationsItem> call = service.buscarAllocacaoPorId(idAllocation);
+        call.enqueue(new Callback<AllocationsItem>() {
             @Override
-            public void onResponse(Call<Allocation> call, Response<Allocation> response) {
+            public void onResponse(Call<AllocationsItem> call, Response<AllocationsItem> response) {
                 Log.d("buscarallocation", "onResponse: Buscar"+ response);
                 respositorioCallBack.onResponse(response.body());
             }
 
             @Override
-            public void onFailure(Call<Allocation> call, Throwable t) {
+            public void onFailure(Call<AllocationsItem> call, Throwable t) {
                 Log.d("buscarallocation", "onFailure: falha ao buscar allocation");
                 respositorioCallBack.onFailure(t);
             }
@@ -71,16 +71,16 @@ public class AllocationRepositorio {
     }
 
     public void editarAllocation(int idAllocation, AllocationRequest allocationRequest, RespositorioCallBack respositorioCallBack ){
-        Call<Allocation> call = service.editarAllocacao(idAllocation, allocationRequest);
-        call.enqueue(new Callback<Allocation>() {
+        Call<AllocationsItem> call = service.editarAllocacao(idAllocation, allocationRequest);
+        call.enqueue(new Callback<AllocationsItem>() {
             @Override
-            public void onResponse(Call<Allocation> call, Response<Allocation> response) {
+            public void onResponse(Call<AllocationsItem> call, Response<AllocationsItem> response) {
                 Log.d("edicaoallocation", "onResponse: edição com sucesso"+ response);
                 respositorioCallBack.onResponse(response.body());
             }
 
             @Override
-            public void onFailure(Call<Allocation> call, Throwable t) {
+            public void onFailure(Call<AllocationsItem> call, Throwable t) {
                 Log.d("edicaoallocation" , "onFailure: falhou a edição");
                 respositorioCallBack.onFailure(t);
             }
