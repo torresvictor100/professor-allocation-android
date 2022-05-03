@@ -54,6 +54,9 @@ public class ListaAlocacaoActivity extends AppCompatActivity {
 
             @Override
             public void onClickEditarAlocacao(AllocationsItem editarAlocacaco) {
+                Intent intent = new Intent(ListaAlocacaoActivity.this, CriarAlocacaoActivity.class);
+                intent.putExtra("extra_id_alocacao", editarAlocacaco.getId());
+                startActivity(intent);
 
             }
         });

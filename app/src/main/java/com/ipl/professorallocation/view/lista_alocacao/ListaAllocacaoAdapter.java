@@ -39,9 +39,7 @@ public class ListaAllocacaoAdapter extends RecyclerView.Adapter<ListaAllocacaoAd
         holder.binding.excluirAlocacao.setOnClickListener(view -> {
             callback.onClickExcluirAlocacao(alocacao);
         });
-        holder.binding.editarAlocacao.setOnClickListener(view -> {
-            callback.onClickEditarAlocacao(alocacao);
-        });
+        holder.binding.editarAlocacao.setOnClickListener(view -> callback.onClickEditarAlocacao(alocacao));
 
     }
 

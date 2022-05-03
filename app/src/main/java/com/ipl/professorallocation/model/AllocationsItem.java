@@ -1,6 +1,7 @@
 package com.ipl.professorallocation.model;
 
 import com.google.gson.annotations.SerializedName;
+import com.ipl.professorallocation.model.curso.Curso;
 
 import java.io.Serializable;
 import java.time.LocalTime;
@@ -20,7 +21,7 @@ public class AllocationsItem implements Serializable {
 	private LocalTime startHour;
 
 	@SerializedName("course")
-	private Course course;
+	private Curso course;
 
 	@SerializedName("id")
 	private int id;
@@ -57,11 +58,11 @@ public class AllocationsItem implements Serializable {
 		return startHour;
 	}
 
-	public void setCourse(Course course){
+	public void setCourse(Curso course){
 		this.course = course;
 	}
 
-	public Course getCourse(){
+	public Curso getCourse(){
 		return course;
 	}
 

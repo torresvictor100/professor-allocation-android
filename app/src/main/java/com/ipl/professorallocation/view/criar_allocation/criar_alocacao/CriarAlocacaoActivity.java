@@ -2,6 +2,7 @@ package com.ipl.professorallocation.view.criar_allocation.criar_alocacao;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.Allocation;
 import android.util.Log;
@@ -46,10 +47,6 @@ public class CriarAlocacaoActivity extends AppCompatActivity {
     private AllocationsItem allocationsItemEditar;
 
 
-
-    private LocalTime timeInicoSelecionada;
-    private LocalTime timeFimSelecionado;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,11 +56,39 @@ public class CriarAlocacaoActivity extends AppCompatActivity {
         professorRepositorio = new ProfessorRepositorio();
         cursoRepositorio = new CursoRepositorio();
         salvarAlocacao();
+        pegarValorIntent();
         configurarSpinnerCurso();
         configurarSpinnerDia();
         configuraSpinnerProfessor();
         listCurso();
         listaProfessor();
+    }
+
+    private void pegarValorIntent(){
+        Intent intent = getIntent();
+        idAlocacao = intent.getIntExtra("extra_id_alocacao", -1);
+        if(idAlocacao > -1){
+            corregarAlocacao(idAlocacao);
+        }
+    }
+
+    private void corregarAlocacao(int idAlocacao) {
+        allocationRepositorio.buscarAllocation(idAlocacao, new RespositorioCallBack<AllocationsItem>() {
+            @Override
+            public void onResponse(AllocationsItem response) {
+                binding.horarioDeInicio.setText(response.getStartHour().format(DateTimeFormatter.ofPattern("HH:mm")));
+                binding.horarioDeFinal.setText(response.getEndHour().format(DateTimeFormatter.ofPattern("HH:mm")));
+                binding.spinnerDiaDaSemana.setSelection(posicaoDia(listDia, response.getDayOfWeek()));
+
+                allocationsItemEditar = response;
+
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
+            }
+        });
     }
 
     private void configuraSpinnerProfessor(){
@@ -100,19 +125,6 @@ public class CriarAlocacaoActivity extends AppCompatActivity {
         });
     }
 
-    private void carregarAlocacao(int idAlocacao){
-        allocationRepositorio.buscarAllocation(idAlocacao, new RespositorioCallBack<AllocationsItem>() {
-            @Override
-            public void onResponse(AllocationsItem response) {
-
-            }
-
-            @Override
-            public void onFailure(Throwable t) {
-
-            }
-        });
-    }
 
     private int posicaoDia(List<String> listDia, String dia){
         for(int i = 0; i< listDia.size(); i++){
@@ -147,6 +159,10 @@ public class CriarAlocacaoActivity extends AppCompatActivity {
             @Override
             public void onResponse(List<Curso> response) {
                 arrayCursoAdapterSpinner.addAll(response);
+                if(idAlocacao > -1 ){
+                    int posicaoCurso = arrayCursoAdapterSpinner.getPosition(allocationsItemEditar.getCourse());
+                    binding.spinnerDeCurso.setSelection(posicaoCurso);
+                }
                 Log.d("listacurso", "onResponse: sucesso a lista o curso"+ response);
             }
 
@@ -162,6 +178,10 @@ public class CriarAlocacaoActivity extends AppCompatActivity {
             @Override
             public void onResponse(List<Professor> response) {
                 arrayProfessorAdapterSpinner.addAll(response);
+                if(idAlocacao > -1){
+                    int posicaoProfessor = arrayProfessorAdapterSpinner.getPosition(allocationsItemEditar.getProfessor());
+                    binding.spinnerProfessor.setSelection(posicaoProfessor);
+                }
                 Log.d("listprofessor", "onResponse: sucesso a lista o Professor"+ response);
             }
 
@@ -192,7 +212,7 @@ public class CriarAlocacaoActivity extends AppCompatActivity {
         int cursoAlocacao = curso.getId();
         int professorAlocacao = professor.getId();
         String diaDaSemana = dia;
-        return new AllocationRequest(cursoAlocacao, dia,convertendoHoraInicio,convertendoHoraFinal, professorAlocacao );
+        return new AllocationRequest(cursoAlocacao, diaDaSemana,convertendoHoraInicio,convertendoHoraFinal, professorAlocacao );
 
     }
 
